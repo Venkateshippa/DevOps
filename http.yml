@@ -1,0 +1,16 @@
+---
+- hosts: webserver
+  become: yes
+  tasks:
+  - name: groupvar
+    debug:
+     msg: "{{ log_folder }}"
+  - name: install httpd
+    yum:
+     name: httpd
+     state: absent
+  - name: service httpd
+    service:
+     name: httpd
+     state: stopped
+     enabled: yes
