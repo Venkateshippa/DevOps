@@ -1,0 +1,27 @@
+---
+# tasks file for auro.httpd
+- name: install nginx for debian
+  apt:
+  - name: "{{nginx_package for deb}}"
+    state: present
+    when: ansible_os_family == 'Debian'
+- name: install nginix for redhot   
+  yum:
+  - name: "{{nginx_package for redhot}}"
+    state: present
+    when: ansible_os_family == 'RedHat'
+- name: servce for deb
+  set_fact:
+    service_nginx: "{{nginx_package for deb}}"
+    when: ansible_os_family == 'Debian'
+- name: service for redhot
+  set_fact:
+    service_nginx: "{{nginx_package for redhot}}"
+    when: ansible_os_family == 'RedHat'
+  service:
+    name: "{{service_nginx}}"
+    state: started
+    enabled: yes   
+
+
+

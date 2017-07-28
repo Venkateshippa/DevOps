@@ -1,0 +1,6 @@
+---
+# vars file for auro.httpd
+apache_package for deb: apache2
+apache_package for redhot: httpd
+nginx_package for deb: nginx
+nginx_package for redhot: nginx

@@ -1,0 +1,8 @@
+---
+# handlers file for auro.httpd
+- name: restat deb nginx
+  service: "{{nginx_package for deb}}"
+  state: restarted
+- name: restart red nginx
+  service: "{{nginx_package for redhot}}"
+  state: restarted
